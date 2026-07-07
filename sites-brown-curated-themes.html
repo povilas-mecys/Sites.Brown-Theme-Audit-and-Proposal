@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusPress Theme Review · Sites@Brown</title>
+    <style>
+        :root {
+            --brown: #4E3629;
+            --brown-light: #7d5c47;
+            --brown-50: #ffffff;
+            --red: #C8102E;
+            --red-50: #fbe9ec;
+            --green: #21825a;
+            --green-50: #edf7f1;
+            --amber: #a06a00;
+            --amber-50: #fbf3e2;
+            --slate: #4c5b6d;
+            --slate-50: #eef1f4;
+            --ink: #1c1b1a;
+            --muted: #767068;
+            --line: #ebe6e1;
+            --bg: #fbfaf8;
+            --card: #fff;
+            --shadow: 0 1px 2px rgba(20, 15, 10, .05);
+            --radius: 10px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.55;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased
+        }
+
+        a {
+            color: var(--brown)
+        }
+
+        .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px 60px
+        }
+
+        header.banner {
+            background: var(--card);
+            color: var(--ink);
+            padding: 34px 0 24px;
+            border-bottom: 1px solid var(--line);
+            box-shadow: inset 0 3px 0 var(--red)
+        }
+
+        header.banner .wrap {
+            padding-bottom: 0
+        }
+
+        header.banner h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -.2px;
+            color: var(--brown)
+        }
+
+        header.banner p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .headerflag {
+            background: var(--amber-50);
+            border: 1px solid #eddcb3;
+            border-left: 3px solid var(--amber);
+            color: #5c4108;
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin: 18px 0 4px;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .headerflag b {
+            color: #5c4108
+        }
+
+        .report {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px 28px 28px;
+            margin: 24px 0
+        }
+
+        .report h2 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 24px 0 8px;
+            border-top: 1px solid var(--line);
+            padding-top: 20px
+        }
+
+        .report h2:first-child {
+            margin-top: 0;
+            border-top: 0;
+            padding-top: 0
+        }
+
+        .report h3 {
+            font-size: 13px;
+            color: var(--ink);
+            margin: 14px 0 6px
+        }
+
+        .report p {
+            margin: 0 0 10px;
+            color: var(--ink)
+        }
+
+        .report ol,
+        .report ul {
+            margin: 6px 0 10px;
+            padding-left: 22px
+        }
+
+        .report li {
+            margin: 4px 0;
+        }
+
+        .report details.facc {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            margin: 12px 0;
+            overflow: hidden
+        }
+
+        .report details.facc>summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 14px 18px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            user-select: none;
+            background: var(--card);
+            transition: background .12s
+        }
+
+        .report details.facc>summary::-webkit-details-marker {
+            display: none
+        }
+
+        .report details.facc>summary::before {
+            content: "\25B8";
+            display: inline-block;
+            transition: transform .15s;
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .report details.facc[open]>summary {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .report details.facc[open]>summary::before {
+            transform: rotate(90deg)
+        }
+
+        .report details.facc>summary:hover {
+            background: var(--bg)
+        }
+
+        .report details.facc .facc-body {
+            padding: 16px 18px 18px
+        }
+
+        .srcline {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 10px
+        }
+
+        .srcline a {
+            color: var(--muted);
+            text-decoration: underline
+        }
+
+        .rtable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 13.5px
+        }
+
+        .rtable th {
+            background: transparent;
+            color: var(--muted);
+            text-align: left;
+            padding: 8px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .rtable td {
+            padding: 10px 10px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top
+        }
+
+        .rtable tr:last-child td {
+            border-bottom: 0
+        }
+
+        .rtable tr.rtable-group td {
+            background: var(--brown-50);
+            color: var(--brown);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding-top: 12px;
+            padding-bottom: 6px;
+            border-bottom: 0
+        }
+
+        h2.sec {
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--muted);
+            margin: 22px 0 10px;
+            font-weight: 700
+        }
+
+        .tagbar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 14px;
+            margin: 10px 0 22px
+        }
+
+        .tbtn {
+            cursor: pointer;
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--brown);
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            box-shadow: var(--shadow);
+            transition: border-color .12s, background .12s;
+            user-select: none
+        }
+
+        .tbtn:hover {
+            border-color: var(--brown-light)
+        }
+
+        .tbtn .num {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .tbtn .lbl {
+            font-size: 11.5px;
+            color: var(--muted);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: .5px
+        }
+
+        .tbtn[data-tag="Enable"] {
+            border-left-color: var(--green)
+        }
+
+        .tbtn[data-tag="Maybe"] {
+            border-left-color: var(--amber)
+        }
+
+        .tbtn[data-tag="Disable"] {
+            border-left-color: var(--slate)
+        }
+
+        .tbtn.active[data-tag="Enable"] {
+            background: var(--green);
+            color: #fff;
+            border-color: var(--green)
+        }
+
+        .tbtn.active[data-tag="Maybe"] {
+            background: var(--amber);
+            color: #fff;
+            border-color: var(--amber)
+        }
+
+        .tbtn.active[data-tag="Disable"] {
+            background: #6b625c;
+            color: #fff;
+            border-color: #6b625c
+        }
+
+        .tbtn.active[data-tag=""] {
+            background: var(--brown);
+            color: #fff;
+            border-color: var(--brown)
+        }
+
+        .tbtn.active .lbl {
+            color: rgba(255, 255, 255, .85)
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px 14px;
+            box-shadow: var(--shadow);
+            margin-top: 14px
+        }
+
+        .controls input[type=text],
+        .controls select {
+            font-size: 14px;
+            padding: 8px 10px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--ink);
+            min-width: 150px
+        }
+
+        .controls input[type=text] {
+            flex: 1;
+            min-width: 200px
+        }
+
+        .controls label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-right: 4px
+        }
+
+        .csvbtn {
+            background: var(--brown);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background .12s
+        }
+
+        .csvbtn:hover {
+            background: var(--brown-light)
+        }
+
+        .results {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 10px 2px
+        }
+
+        .tablewrap {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: auto;
+            margin-top: 8px;
+            box-shadow: var(--shadow);
+            max-height: 78vh
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            color: var(--muted);
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding: 11px 12px;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--line);
+            z-index: 2
+        }
+
+        th:hover {
+            color: var(--ink);
+            background: var(--bg)
+        }
+
+        th .arr {
+            opacity: .5;
+            font-size: 10px;
+            margin-left: 4px
+        }
+
+        td {
+            padding: 10px 12px;
+            border-top: 1px solid var(--line);
+            font-size: 13.5px;
+            vertical-align: top
+        }
+
+        tbody tr:hover {
+            background: var(--bg)
+        }
+
+        tbody tr.row-Enable {
+            background: var(--green-50)
+        }
+
+        tbody tr.row-Enable:hover {
+            background: #e2f1e8
+        }
+
+        tbody tr.row-Maybe {
+            background: var(--amber-50)
+        }
+
+        tbody tr.row-Maybe:hover {
+            background: #f7ecd3
+        }
+
+        tbody tr.row-Disable {
+            background: var(--slate-50)
+        }
+
+        tbody tr.row-Disable:hover {
+            background: #e4e8ed
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap
+        }
+
+        .badge-Enable {
+            background: #d9efe3;
+            color: var(--green)
+        }
+
+        .badge-Maybe {
+            background: #f3e3bb;
+            color: var(--amber)
+        }
+
+        .badge-Disable {
+            background: #dbe1e8;
+            color: var(--slate)
+        }
+
+        .usetag {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 10.5px;
+            font-weight: 600;
+            margin: 1px 3px 1px 0;
+            white-space: nowrap;
+            background: var(--brown-50);
+            color: var(--brown)
+        }
+
+        .linkv {
+            color: var(--brown);
+            font-weight: 600;
+            text-decoration: none
+        }
+
+        .noresult {
+            padding: 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 15px
+        }
+
+        mark {
+            background: var(--amber-50);
+            color: #5c4108;
+            padding: 1px 4px;
+            border-radius: 4px
+        }
+
+        code {
+            font-size: 12.5px
+        }
+
+        footer {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+            border-top: 1px solid var(--line);
+            padding-top: 16px
+        }
+
+        .selectcard {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--brown);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            margin-top: 14px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px
+        }
+
+        .selectinfo {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--brown)
+        }
+
+        .selecthint {
+            font-size: 12px;
+            color: var(--muted);
+            flex-basis: 100%
+        }
+
+        .clearbtn2 {
+            background: #fff;
+            color: var(--red);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 9px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer
+        }
+
+        .clearbtn2:hover {
+            border-color: var(--red)
+        }
+
+        .selcell {
+            width: 44px;
+            text-align: center
+        }
+
+        .selcell input {
+            width: 17px;
+            height: 17px;
+            cursor: pointer
+        }
+
+        tbody tr.is-selected {
+            outline: 2px solid var(--brown);
+            outline-offset: -2px
+        }
+    </style>
+</head>
+
+<body>
+    <header class="banner">
+        <div class="wrap">
+            <h1>CampusPress Theme Review &middot; Sites@Brown</h1>
+            <p>All 527 themes currently in the CampusPress library were reviewed and tagged Enable, Maybe, or Disable
+                &mdash; 55 Enable, 37 Maybe, and 435 Disable.</p>
+
+            <div class="headerflag"><b>Note:</b> the majority of this catalog is outdated and no
+                longer under active development. Many of the themes still in the mix trace back to WordPress's
+                earliest years (roughly 2008&ndash;2015), and it's fair to question whether they meet today's design and
+                accessibility standards. I chose the best options available, but it is worth raising with
+                CampusPress directly whether Brown needs a smaller, modern set of templates built for the university's
+                actual needs, rather than continue to curate an aging legacy library.</div>
+        </div>
+    </header>
+    <div class="wrap">
+
+        <div class="report">
+
+            <details class="facc" open>
+                <summary>Recommended starter site options</summary>
+                <div class="facc-body">
+
+                    <table class="rtable">
+                        <tr>
+                            <th>Recommended theme</th>
+                            <th>Other Themes</th>
+                        </tr>
+                        <tr class="rtable-group">
+                            <td colspan="2"><b>Faculty / staff site</b></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wordpress.org/themes/twentytwentyone/" target="_blank" rel="noopener">Twenty Twenty-One</a>, <a href="https://wordpress.org/themes/hitchcock/" target="_blank" rel="noopener">Hitchcock</a>, <a href="https://wordpress.org/themes/argent/" target="_blank" rel="noopener">Argent</a>, <a href="https://wordpress.org/themes/yuuta/" target="_blank" rel="noopener">Yuuta</a>, <a href="https://wordpress.org/themes/fork/" target="_blank" rel="noopener">Fork</a>, <a href="https://wordpress.org/themes/twentynineteen/" target="_blank" rel="noopener">Twenty Nineteen</a>, <a href="https://wordpress.org/themes/neve-fse/" target="_blank" rel="noopener">Neve FSE</a></td>
+                            <td><a href="https://wordpress.org/themes/esteem/" target="_blank" rel="noopener">Esteem</a>, <a href="https://wordpress.org/themes/cubic/" target="_blank" rel="noopener">Cubic</a>, <a href="https://wordpress.org/themes/garfunkel/" target="_blank" rel="noopener">Garfunkel</a>, <a href="https://wordpress.org/themes/ignite/" target="_blank" rel="noopener">Ignite</a>, <a href="https://wordpress.org/themes/landscape/" target="_blank" rel="noopener">Landscape</a>, <a href="https://wordpress.org/themes/rams/" target="_blank" rel="noopener">Rams</a>, <a href="https://wordpress.org/themes/unit/" target="_blank" rel="noopener">Unit</a>, <a href="https://wordpress.org/themes/bjork/" target="_blank" rel="noopener">Björk</a>, <a href="https://wordpress.org/themes/fukasawa/" target="_blank" rel="noopener">Fukasawa</a>, <a href="https://wordpress.org/themes/lyretail/" target="_blank" rel="noopener">Lyretail</a>, <a href="https://wordpress.org/themes/founder/" target="_blank" rel="noopener">Founder</a>, <a href="https://wordpress.org/themes/twentyeleven/" target="_blank" rel="noopener">Twenty Eleven</a>, <a href="https://wordpress.org/themes/checathlon/" target="_blank" rel="noopener">Checathlon</a></td>
+                        </tr>
+                        <tr class="rtable-group">
+                            <td colspan="2"><b>Lab / research group site</b></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wordpress.org/themes/twentytwentytwo/" target="_blank" rel="noopener">Twenty Twenty-Two</a>, <a href="https://wordpress.org/themes/eemeli/" target="_blank" rel="noopener">Eemeli</a>, <a href="https://wordpress.org/themes/raft/" target="_blank" rel="noopener">Raft</a></td>
+                            <td><a href="https://wordpress.org/themes/ample/" target="_blank" rel="noopener">Ample</a></td>
+                        </tr>
+                        <tr class="rtable-group">
+                            <td colspan="2"><b>Publication / journal site</b></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wordpress.org/themes/twentytwentythree/" target="_blank" rel="noopener">Twenty Twenty-Three</a>, <a href="https://wordpress.org/themes/author/" target="_blank" rel="noopener">Author</a>, <a href="https://wordpress.org/themes/radcliffe/" target="_blank" rel="noopener">Radcliffe</a>, <a href="https://wordpress.org/themes/fortunato/" target="_blank" rel="noopener">Fortunato</a>, <a href="https://wordpress.org/themes/twentyfourteen/" target="_blank" rel="noopener">Twenty Fourteen</a>, <a href="https://wordpress.org/themes/twentyfifteen/" target="_blank" rel="noopener">Twenty Fifteen</a>, <a href="https://wordpress.org/themes/twentysixteen/" target="_blank" rel="noopener">Twenty Sixteen</a></td>
+                            <td><a href="https://wordpress.org/themes/dyad/" target="_blank" rel="noopener">Dyad</a>, <a href="https://wordpress.org/themes/hueman/" target="_blank" rel="noopener">Hueman</a>, <a href="https://wordpress.org/themes/the-newswire/" target="_blank" rel="noopener">The Newswire</a>, <a href="https://wordpress.org/themes/wp-jurist/" target="_blank" rel="noopener">WP Jurist</a>, <a href="https://wordpress.org/themes/adler/" target="_blank" rel="noopener">Adler</a>, <a href="https://wordpress.org/themes/chicago/" target="_blank" rel="noopener">Chicago</a>, <a href="https://wordpress.org/themes/graphy/" target="_blank" rel="noopener">Graphy</a>, <a href="https://wordpress.org/themes/swell-lite/" target="_blank" rel="noopener">Swell Lite</a>, <a href="https://wordpress.org/themes/frost/" target="_blank" rel="noopener">Frost</a>, <a href="https://wordpress.org/themes/simone/" target="_blank" rel="noopener">Simone</a>, <a href="https://wordpress.org/themes/didi-lite/" target="_blank" rel="noopener">Didi Lite</a>, <a href="https://wordpress.org/themes/slightly/" target="_blank" rel="noopener">Slightly</a></td>
+                        </tr>
+                        <tr class="rtable-group">
+                            <td colspan="2"><b>Organization / society site</b></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wordpress.org/themes/twentytwentyfour/" target="_blank" rel="noopener">Twenty Twenty-Four</a>, <a href="https://wordpress.org/themes/maisha-lite/" target="_blank" rel="noopener">Maisha Lite</a>, <a href="https://wordpress.org/themes/search/CampusPress%20Flex/" target="_blank" rel="noopener">CampusPress Flex</a>, <a href="https://wordpress.org/themes/lovecraft/" target="_blank" rel="noopener">Lovecraft</a></td>
+                            <td><a href="https://wordpress.org/themes/bookmark/" target="_blank" rel="noopener">Bookmark</a>, <a href="https://wordpress.org/themes/catch-box/" target="_blank" rel="noopener">Catch Box</a>, <a href="https://wordpress.org/themes/wilson/" target="_blank" rel="noopener">Wilson</a></td>
+                        </tr>
+                        <tr class="rtable-group">
+                            <td colspan="2"><b>Conference / workshop site</b></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wordpress.org/themes/twentytwentyfive/" target="_blank" rel="noopener">Twenty Twenty-Five</a>, <a href="https://wordpress.org/themes/twentyseventeen/" target="_blank" rel="noopener">Twenty Seventeen</a>, <a href="https://www.elegantthemes.com/gallery/divi/" target="_blank" rel="noopener">Divi</a>, <a href="https://wordpress.org/themes/twentytwenty/" target="_blank" rel="noopener">Twenty Twenty</a></td>
+                            <td><a href="https://wordpress.org/themes/auberge/" target="_blank" rel="noopener">Auberge</a></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </details>
+
+
+
+            <details class="facc">
+                <summary>Ways to Add Custom Branding Styles to WordPress
+                </summary>
+                <div class="facc-body">
+                    <section id="brown-branding-methods">
+
+
+                        <h3>1. No-Code &amp; Admin Interfaces</h3>
+                        <ul>
+                            <li>
+                                <strong>The Customizer ("Additional CSS"):</strong>
+                                Database-stored CSS entered via <em>Appearance &gt; Customize</em>. Fast for individual
+                                standalone sites, but does not scale network-wide.
+                            </li>
+                            <li>
+                                <strong>Global Styles (theme.json):</strong>
+                                The configuration standard for modern block templates (Twenty Twenty-One through Twenty
+                                Twenty-Five) to lock palettes and typography directly into the editor UI.
+                                <pre
+                                    style="background: #f4f4f4; padding: 10px; border-left: 3px solid #4E3629; overflow-x: auto;"><code style="font-family: monospace;">{ "settings": { "color": { "palette": [ { "slug": "brown", "color": "#4E3629", "name": "Brown" } ] } } }</code></pre>
+                            </li>
+                            <li>
+                                <strong>Block-Specific Inline Styles:</strong>
+                                Stylistic overrides (padding, margins, custom hex selections) applied directly to an
+                                individual block element inside the page creator interface.
+                            </li>
+                        </ul>
+
+                        <h3>2. Code &amp; File Modifications</h3>
+                        <ul>
+                            <li>
+                                <strong>Theme Script Enqueuing (wp_enqueue_scripts):</strong>
+                                The official WordPress best practice. Programmatically attaches a separate,
+                                version-controlled `.css` stylesheet asset via a theme's <code>functions.php</code>
+                                file.
+                                <pre
+                                    style="background: #f4f4f4; padding: 10px; border-left: 3px solid #4E3629; overflow-x: auto;"><code style="font-family: monospace;">wp_enqueue_style( 'brown-theme-styles', get_stylesheet_uri() );</code></pre>
+                            </li>
+                            <li>
+                                <strong>Child Theme Stylesheet (style.css):</strong>
+                                Creating a secondary theme directory that inherits structural templates from a parent
+                                theme while writing unique CSS adjustments to its own <code>style.css</code> sheet.
+                                <pre
+                                    style="background: #f4f4f4; padding: 10px; border-left: 3px solid #4E3629; overflow-x: auto;"><code style="font-family: monospace;">/* Theme Name: Twenty Twenty-Five Child | Template: twentytwentyfive */
+body { background-color: #4E3629; }</code></pre>
+                            </li>
+                            <li>
+                                <strong>CSS @import Rules:</strong>
+                                A standard directive placed at the absolute top of a stylesheet to import an external
+                                file. Highly discouraged due to render-blocking load performance delays.
+                                <pre
+                                    style="background: #f4f4f4; padding: 10px; border-left: 3px solid #4E3629; overflow-x: auto;"><code style="font-family: monospace;">@import url("https://identity.brown.edu/assets/global-brand.css");</code></pre>
+                            </li>
+                            <li>
+                                <strong>Inline &lt;head&gt; Injections (wp_head):</strong>
+                                Programmatically echoing a raw HTML <code>&lt;style&gt;</code> block into the site's
+                                head metadata. Highly useful for injecting dynamic CSS variables.
+                                <pre
+                                    style="background: #f4f4f4; padding: 10px; border-left: 3px solid #4E3629; overflow-x: auto;"><code style="font-family: monospace;">add_action( 'wp_head', function() { echo '&lt;style&gt;:root { --brown: #4E3629; }&lt;/style&gt;'; } );</code></pre>
+                            </li>
+                        </ul>
+
+                        <h3>3. <mark>RECOMMENDED FOR SCALE: Custom Functionality Plugin (MU-Plugin)</mark></h3>
+                        <div>
+                            <p>
+                                Packaging identity asset enqueuing routines inside a custom network-wide plugin. This
+                                isolates university branding rules completely from theme update cycles, ensuring
+                                <strong>zero code loss</strong> when upstream CampusPress theme files update.
+                            </p>
+                            <pre
+                                style="background: #f4f4f4; padding: 10px; border-left: 3px solid #ED1C24; overflow-x: auto;"><code style="font-family: monospace;">add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'mu-brand', plugin_dir_url(__FILE__) . 'brand.css', array(), '1.0.0' );
+}, 999 );</code></pre>
+                        </div>
+                    </section>
+                </div>
+            </details>
+
+            <details class="facc">
+                <summary>Brand Asset Integration
+                </summary>
+                <div class="facc-body">
+                    <section class="brand-asset-integration">
+
+                        <div class="asset-module">
+                            <h4>1. Typography Assets</h4>
+                            <ul>
+                                <li><strong>Primary Fonts:</strong> Minion Pro or Circular (with standard system
+                                    fallbacks).</li>
+                                <li><strong>Font Delivery Method:</strong> Packaged directly into the plugin directory
+                                    (<code>assets/fonts/</code>) and called via localized <code>@font-face</code> rules
+                                    to guarantee secure, high-performance loading across all sub-sites.</li>
+                            </ul>
+                        </div>
+
+                        <hr />
+
+                        <div class="asset-module">
+                            <h4>2. Core Color Tokens</h4>
+                            <ul>
+                                <li><strong>Theme Configuration:</strong> Exact hex codes mapped inside
+                                    <code>theme.json</code> global style palettes and fallback CSS custom properties.
+                                </li>
+                                <li><strong>Contrast Standards:</strong> Access-locked selections ensuring universal
+                                    WCAG 2.1 AA compliance for text/background pairings.</li>
+                            </ul>
+                        </div>
+
+                        <hr />
+
+                        <div class="asset-module">
+                            <h4>3. Graphics & Identity Markers</h4>
+                            <ul>
+                                <li><strong>Site Icon:</strong> Network-wide fallback favicon managed asset-side to
+                                    ensure cohesive tab identity across unconfigured sites.</li>
+                                <li><strong>Iconography:</strong> A curated, lightweight utility icon set embedded
+                                    directly to eliminate mixed third-party icon styling.</li>
+                            </ul>
+                        </div>
+
+                        <hr />
+
+                        <div class="asset-module">
+                            <h4>4. Structural Layout Modules</h4>
+                            <ul>
+                                <li><strong>Global Header Strip:</strong> A lightweight, un-intrusive utility bar
+                                    added to the top of the webpage containing the official institution branding.
+                                </li>
+                                <li><strong>Standardized Footer:</strong> Pre-packaged layout block containing mandatory
+                                    legal copyright strings, physical mailing address, and standard compliance links
+                                    (Accessibility, Privacy, and Contact Information).</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </details>
+
+        </div>
+
+        <h2 class="sec">Themes by tag &mdash; click to filter</h2>
+        <div class="tagbar" id="tagBar"></div>
+        <h2 class="sec">Select themes to enable</h2>
+        <div class="selectcard">
+            <div class="selectinfo" id="selectInfo">0 themes selected</div>
+            <button class="csvbtn" onclick="exportSelected()">Download selected (CSV)</button>
+            <button class="clearbtn2" onclick="clearSelected()">Clear selections</button>
+            <div class="selecthint">Check the box on any row below to mark it as a theme you want enabled. Selections
+                save automatically in this browser, whatever filter you have applied &mdash; download your list any time
+                for your records.</div>
+        </div>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search theme name...">
+            <button class="csvbtn" onclick="exportView()">Download CSV of current view</button>
+        </div>
+        <div class="results" id="results"></div>
+        <div class="tablewrap">
+            <table>
+                <thead>
+                    <tr id="head"></tr>
+                </thead>
+                <tbody id="body"></tbody>
+            </table>
+            <div class="noresult" id="noResult" style="display:none">No themes match the current filters.</div>
+        </div>
+        <footer> Sites@Brown - CampusPress Theme Audit </footer>
+    </div>
+    <script>
+        const DATA = [{ "tag": "Enable", "name": "Author", "status": "Enabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Accessible blog/magazine theme by CompeteThemes. Matches.", "link": "https://wordpress.org/themes/author/" }, { "tag": "Enable", "name": "CampusPress Flex", "status": "Enabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "No", "note": "Real CampusPress product, distributed via GitHub/CampusPress, not on wordpress.org.", "link": "https://wordpress.org/themes/search/CampusPress%20Flex/" }, { "tag": "Maybe", "name": "Dan", "status": "Enabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Yes", "note": "Simple two-column blog theme; generic, type Unknown is fine.", "link": "https://wordpress.org/themes/dan/" }, { "tag": "Enable", "name": "Esteem", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Multipurpose theme (business/portfolio/blog) by ThemeGrill. Matches.", "link": "https://wordpress.org/themes/esteem/" }, { "tag": "Enable", "name": "Founder", "status": "Enabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimalist multipurpose theme by Ben Sibley. Matches, broadly flexible.", "link": "https://wordpress.org/themes/founder/" }, { "tag": "Enable", "name": "Radcliffe", "status": "Enabled", "type": "Magazine", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Blog-focused theme by Anders Noren. Matches (Magazine/blog).", "link": "https://wordpress.org/themes/radcliffe/" }, { "tag": "Disable", "name": "Shoreditch", "status": "Enabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/shoreditch/" }, { "tag": "Disable", "name": "TextBook", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/textbook/" }, { "tag": "Enable", "name": "Twenty Fifteen", "status": "Enabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official 2015 WP default theme. Matches.", "link": "https://wordpress.org/themes/twentyfifteen/" }, { "tag": "Enable", "name": "Twenty Seventeen", "status": "Enabled", "type": "Core/Default", "bestuse": "Faculty / Staff; Labs & Research; Conferences & Workshops; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Official 2017 WP default theme, business-focused. Matches.", "link": "https://wordpress.org/themes/twentyseventeen/" }, { "tag": "Enable", "name": "Twenty Sixteen", "status": "Enabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official 2016 WP default theme. Matches.", "link": "https://wordpress.org/themes/twentysixteen/" }, { "tag": "Enable", "name": "Unit", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimalist child theme of Founder, by Ben Sibley. Matches.", "link": "https://wordpress.org/themes/unit/" }, { "tag": "Maybe", "name": "14-Glassy", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Child theme of Twenty Fourteen, mobile-tuned. URL corrected.", "link": "https://wordpress.org/themes/14-glassy/" }, { "tag": "Disable", "name": "72 Class", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/72%20Class/" }, { "tag": "Disable", "name": "A11Y'all", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/A11Y'all/" }, { "tag": "Disable", "name": "Aaron", "status": "Disabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Aaron/" }, { "tag": "Disable", "name": "Able", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Able/" }, { "tag": "Maybe", "name": "Accelerate", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Multipurpose ThemeGrill theme (business/blog/travel too); broader than Portfolio.", "link": "https://wordpress.org/themes/accelerate/" }, { "tag": "Disable", "name": "Accessible Zen", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Accessible%20Zen/" }, { "tag": "Disable", "name": "Activello", "status": "Disabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Activello/" }, { "tag": "Disable", "name": "Adaption", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Adaption/" }, { "tag": "Disable", "name": "Adelle", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Adelle/" }, { "tag": "Enable", "name": "Adler", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Personal blogging theme. Matches (Blog).", "link": "https://wordpress.org/themes/adler/" }, { "tag": "Disable", "name": "Affinity", "status": "Enabled", "type": "Unknown", "bestuse": "Faculty / Staff; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/affinity/" }, { "tag": "Disable", "name": "Afterlight", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/afterlight/" }, { "tag": "Disable", "name": "Aguafuerte", "status": "Enabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/aguafuerte/" }, { "tag": "Disable", "name": "Aldehyde", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Aldehyde/" }, { "tag": "Disable", "name": "Aldehyde Green", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Aldehyde%20Green/" }, { "tag": "Disable", "name": "Almost Spring", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Almost%20Spring/" }, { "tag": "Disable", "name": "Alpha", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Alpha/" }, { "tag": "Disable", "name": "AltoFocus", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/altofocus/" }, { "tag": "Disable", "name": "Amadeus", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Amadeus/" }, { "tag": "Maybe", "name": "Amalie Lite", "status": "Enabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "General blogging theme (Twenty Fifteen based); not Education/Org specific.", "link": "https://wordpress.org/themes/amalie-lite/" }, { "tag": "Disable", "name": "Ambiru", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ambiru/" }, { "tag": "Enable", "name": "Ample", "status": "Enabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Yes", "note": "Multipurpose ThemeGrill theme incl. e-commerce. Type Unknown, no mismatch.", "link": "https://wordpress.org/themes/ample/" }, { "tag": "Disable", "name": "Anarcho Notepad", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Anarcho%20Notepad/" }, { "tag": "Disable", "name": "anarchy", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/anarchy/" }, { "tag": "Disable", "name": "anchorage", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/anchorage/" }, { "tag": "Disable", "name": "Andreas09", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Andreas09/" }, { "tag": "Disable", "name": "Anjirai", "status": "Deprecated", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Anjirai/" }, { "tag": "Disable", "name": "Aperture", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Aperture/" }, { "tag": "Disable", "name": "Apostrophe", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Apostrophe/" }, { "tag": "Disable", "name": "Arclite", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Arclite/" }, { "tag": "Enable", "name": "Argent", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Yes", "note": "Portfolio theme by Automattic for designers/photographers. Matches.", "link": "https://wordpress.org/themes/argent/" }, { "tag": "Disable", "name": "Ari", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ari/" }, { "tag": "Maybe", "name": "Aries", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Colorful responsive theme for personal bloggers. URL corrected.", "link": "https://wordpress.org/themes/aries/" }, { "tag": "Disable", "name": "Attorney", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Attorney/" }, { "tag": "Enable", "name": "Auberge", "status": "Disabled", "type": "Builder", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies; Conferences & Workshops", "verified": "Yes", "note": "Restaurant/food-blog theme, supports Beaver Builder plugin; not a Builder itself.", "link": "https://wordpress.org/themes/auberge/" }, { "tag": "Disable", "name": "AutoFocus", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/AutoFocus/" }, { "tag": "Disable", "name": "Avocation", "status": "Enabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/avocation/" }, { "tag": "Maybe", "name": "Awaken", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Magazine/news theme with slider, by ThemezHut. Matches.", "link": "https://wordpress.org/themes/awaken/" }, { "tag": "Disable", "name": "AwesomePress", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/AwesomePress/" }, { "tag": "Disable", "name": "Babylog", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Babylog/" }, { "tag": "Maybe", "name": "Baskerville", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Masonry media-showcase theme by Anders Noren; general showcase, not dedicated Portfolio.", "link": "https://wordpress.org/themes/baskerville/" }, { "tag": "Disable", "name": "Batavia", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Batavia/" }, { "tag": "Disable", "name": "Beaumont", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Beaumont/" }, { "tag": "Disable", "name": "Benevolence", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Benevolence/" }, { "tag": "Disable", "name": "Bhari", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bhari/" }, { "tag": "Disable", "name": "Big Brother", "status": "Enabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Big%20Brother/" }, { "tag": "Disable", "name": "Billie", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Billie/" }, { "tag": "Disable", "name": "BirdSITE", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/BirdSITE/" }, { "tag": "Enable", "name": "Björk", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Minimal block theme for blogs/personal sites; blog-focused.", "link": "https://wordpress.org/themes/bjork/" }, { "tag": "Disable", "name": "Blak Magik", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blak%20Magik/" }, { "tag": "Disable", "name": "Blask", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blask/" }, { "tag": "Disable", "name": "Blaskan", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blaskan/" }, { "tag": "Disable", "name": "Blix", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blix/" }, { "tag": "Disable", "name": "Blogghiamo", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blogghiamo/" }, { "tag": "Disable", "name": "Blogly Lite", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blogly%20Lite/" }, { "tag": "Disable", "name": "BlogSixteen", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/BlogSixteen/" }, { "tag": "Disable", "name": "Blogsonry", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blogsonry/" }, { "tag": "Disable", "name": "BlogTheme", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/BlogTheme/" }, { "tag": "Disable", "name": "Blue Green", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blue%20Green/" }, { "tag": "Disable", "name": "Blue Moon", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blue%20Moon/" }, { "tag": "Disable", "name": "Blue Zinfandel Enhanced", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Blue%20Zinfandel%20Enhanced/" }, { "tag": "Disable", "name": "Bluebird", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bluebird/" }, { "tag": "Disable", "name": "Boardwalk", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/boardwalk/" }, { "tag": "Disable", "name": "BonPress – WordPress.com", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/BonPress%20%E2%80%93%20WordPress.com/" }, { "tag": "Disable", "name": "Book Lite", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/book-lite/" }, { "tag": "Enable", "name": "Bookmark", "status": "Enabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Free blogging theme with clean typography; plain blog, not Education/Org.", "link": "https://wordpress.org/themes/bookmark/" }, { "tag": "Disable", "name": "Bootswatch", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bootswatch/" }, { "tag": "Disable", "name": "Borderline Chaos", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Borderline%20Chaos/" }, { "tag": "Disable", "name": "Bosco", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/bosco/" }, { "tag": "Disable", "name": "Bouquet", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bouquet/" }, { "tag": "Disable", "name": "Boutique", "status": "Disabled", "type": "E-Commerce", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Boutique/" }, { "tag": "Disable", "name": "Brand New Day", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Brand%20New%20Day/" }, { "tag": "Disable", "name": "Briks", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Briks/" }, { "tag": "Disable", "name": "Bunny", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bunny/" }, { "tag": "Disable", "name": "Bushwick", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Bushwick/" }, { "tag": "Disable", "name": "Button", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Button/" }, { "tag": "Disable", "name": "Campus Default 2013", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Campus%20Default%202013/" }, { "tag": "Disable", "name": "CampusPress School", "status": "Disabled", "type": "Builder", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/CampusPress%20School/" }, { "tag": "Disable", "name": "Canard", "status": "Enabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/canard/" }, { "tag": "Disable", "name": "Caos", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Caos/" }, { "tag": "Disable", "name": "Capoverso", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Capoverso/" }, { "tag": "Enable", "name": "Catch Box", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Lightweight box-style blog theme by Catch Themes; general blog, not Education/Org specific.", "link": "https://wordpress.org/themes/catch-box/" }, { "tag": "Disable", "name": "Celebrate", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Celebrate/" }, { "tag": "Disable", "name": "Cellar Heat Dark", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cellar%20Heat%20Dark/" }, { "tag": "Disable", "name": "Celsius", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Celsius/" }, { "tag": "Disable", "name": "Cerauno", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cerauno/" }, { "tag": "Disable", "name": "ceskalipa", "status": "Disabled", "type": "Magazine", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/ceskalipa/" }, { "tag": "Disable", "name": "ChaoticSoul", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/ChaoticSoul/" }, { "tag": "Enable", "name": "Checathlon", "status": "Enabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Business/e-commerce theme w/ Easy Digital Downloads support. Matches.", "link": "https://wordpress.org/themes/checathlon/" }, { "tag": "Disable", "name": "Cheer", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cheer/" }, { "tag": "Disable", "name": "Cherish", "status": "Disabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cherish/" }, { "tag": "Disable", "name": "Cherry Blossom", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cherry%20Blossom/" }, { "tag": "Enable", "name": "Chicago", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Responsive blog theme by Catch Themes. Matches.", "link": "https://wordpress.org/themes/chicago/" }, { "tag": "Disable", "name": "Christmas Gift", "status": "Disabled", "type": "E-Commerce", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Christmas%20Gift/" }, { "tag": "Disable", "name": "Chun", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Chun/" }, { "tag": "Disable", "name": "Circa", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Circa/" }, { "tag": "Disable", "name": "Citrus IslandWP", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Citrus%20IslandWP/" }, { "tag": "Disable", "name": "Clear Tranquil", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Clear%20Tranquil/" }, { "tag": "Disable", "name": "Clearly", "status": "Disabled", "type": "Builder", "bestuse": "Labs & Research; Organizations & Societies; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Clearly/" }, { "tag": "Disable", "name": "Codium Grid", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Codium%20Grid/" }, { "tag": "Disable", "name": "Coeur", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Coeur/" }, { "tag": "Disable", "name": "Coherent", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Coherent/" }, { "tag": "Disable", "name": "Coller", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Coller/" }, { "tag": "Disable", "name": "Color Paper", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Color%20Paper/" }, { "tag": "Disable", "name": "Color Splash", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Color%20Splash/" }, { "tag": "Disable", "name": "Cols", "status": "Enabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/cols/" }, { "tag": "Disable", "name": "Confit", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Confit/" }, { "tag": "Disable", "name": "Connections", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Connections/" }, { "tag": "Disable", "name": "Contempt", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Contempt/" }, { "tag": "Disable", "name": "Copyblogger", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Copyblogger/" }, { "tag": "Disable", "name": "Cordobo Green Park", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cordobo%20Green%20Park/" }, { "tag": "Disable", "name": "Corpus", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Corpus/" }, { "tag": "Disable", "name": "Crop Circles", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Crop%20Circles/" }, { "tag": "Maybe", "name": "Cruzy", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Full-width blog theme by CrestaProject. Matches.", "link": "https://wordpress.org/themes/cruzy/" }, { "tag": "Enable", "name": "Cubic", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Minimalist grid theme (Boardwalk child) by Automattic; blog/photography/grid, not Portfolio.", "link": "https://wordpress.org/themes/cubic/" }, { "tag": "Disable", "name": "Cute Frames", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cute%20Frames/" }, { "tag": "Disable", "name": "Cutline", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cutline/" }, { "tag": "Disable", "name": "Cyanotype", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Cyanotype/" }, { "tag": "Disable", "name": "daffodil", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/daffodil/" }, { "tag": "Disable", "name": "Daisy Rae Gemini", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Daisy%20Rae%20Gemini/" }, { "tag": "Disable", "name": "Daniela", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Daniela/" }, { "tag": "Disable", "name": "Dara", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dara/" }, { "tag": "Disable", "name": "Davis", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Davis/" }, { "tag": "Disable", "name": "Day Dream", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Day%20Dream/" }, { "tag": "Disable", "name": "Dazzling", "status": "Disabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dazzling/" }, { "tag": "Disable", "name": "Deejay", "status": "Disabled", "type": "Unknown", "bestuse": "Conferences & Workshops; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Deejay/" }, { "tag": "Disable", "name": "Deichnetz", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Deichnetz/" }, { "tag": "Disable", "name": "Deli", "status": "Disabled", "type": "E-Commerce", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Deli/" }, { "tag": "Disable", "name": "Dellow", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dellow/" }, { "tag": "Disable", "name": "Designfolio", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Designfolio/" }, { "tag": "Disable", "name": "Diary-cute", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Diary-cute/" }, { "tag": "Enable", "name": "Didi Lite", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Fashion/lifestyle/magazine theme by Anariel Design.", "link": "https://wordpress.org/themes/didi-lite/" }, { "tag": "Disable", "name": "Digg 3 Columns", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Digg%203%20Columns/" }, { "tag": "Disable", "name": "Diginews", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Diginews/" }, { "tag": "Disable", "name": "Dignity", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dignity/" }, { "tag": "Enable", "name": "Divi", "status": "Enabled", "type": "Builder", "bestuse": "Labs & Research; Organizations & Societies; Conferences & Workshops", "verified": "Yes", "note": "Not in free directory; slug redirects to unrelated theme. Divi is commercial-only via elegantthemes.com.", "link": "https://www.elegantthemes.com/gallery/divi/" }, { "tag": "Disable", "name": "Dixie Belle", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dixie%20Belle/" }, { "tag": "Disable", "name": "Doc", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Doc/" }, { "tag": "Disable", "name": "Doo", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Doo/" }, { "tag": "Disable", "name": "Drop", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Drop/" }, { "tag": "Enable", "name": "Dyad", "status": "Enabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Photo-and-text pairing theme by Automattic; photography-focused, not Magazine.", "link": "https://wordpress.org/themes/dyad/" }, { "tag": "Disable", "name": "Dynamic News Lite", "status": "Disabled", "type": "Magazine", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Dynamic%20News%20Lite/" }, { "tag": "Disable", "name": "e.nigma 2015", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/e.nigma%202015/" }, { "tag": "Disable", "name": "Ecto", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ecto/" }, { "tag": "Disable", "name": "Edda", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Edda/" }, { "tag": "Maybe", "name": "Edin", "status": "Enabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Yes", "note": "Business/corporate theme by Automattic. Matches.", "link": "https://wordpress.org/themes/edin/" }, { "tag": "Disable", "name": "Editor", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Editor/" }, { "tag": "Disable", "name": "EduBizness", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/EduBizness/" }, { "tag": "Disable", "name": "Edublogs Classic", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Edublogs%20Classic/" }, { "tag": "Disable", "name": "Edublogs Default", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Edublogs%20Default/" }, { "tag": "Disable", "name": "EduBoard (Classic ChalkBoard)", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/EduBoard%20(Classic%20ChalkBoard)/" }, { "tag": "Enable", "name": "Eemeli", "status": "Enabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Business/blog theme (Toivo Lite child) by Sami Keijonen. Matches.", "link": "https://wordpress.org/themes/eemeli/" }, { "tag": "Maybe", "name": "Eighties", "status": "Disabled", "type": "Unknown", "bestuse": "Organizations & Societies", "verified": "Yes", "note": "Content-focused overlay-menu blog theme; not org/society-specific.", "link": "https://wordpress.org/themes/eighties/" }, { "tag": "Disable", "name": "Eryn", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Eryn/" }, { "tag": "Disable", "name": "Escutcheon", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Escutcheon/" }, { "tag": "Disable", "name": "Espied", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Espied/" }, { "tag": "Disable", "name": "Ever After", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ever%20After/" }, { "tag": "Disable", "name": "Ex Astris", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ex%20Astris/" }, { "tag": "Disable", "name": "Extra", "status": "Disabled", "type": "Builder", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Extra/" }, { "tag": "Disable", "name": "eyesite", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/eyesite/" }, { "tag": "Disable", "name": "Falling Dreams", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Falling%20Dreams/" }, { "tag": "Disable", "name": "Family", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Family/" }, { "tag": "Disable", "name": "Fanwood Light – WordPress.com", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fanwood%20Light%20%E2%80%93%20WordPress.com/" }, { "tag": "Disable", "name": "Fara", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fara/" }, { "tag": "Disable", "name": "Fashionistas", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fashionistas/" }, { "tag": "Disable", "name": "Fauna", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fauna/" }, { "tag": "Maybe", "name": "Femina", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Mobile-first personal blog theme; not journal-specific.", "link": "https://wordpress.org/themes/femina/" }, { "tag": "Disable", "name": "Fictive", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fictive/" }, { "tag": "Disable", "name": "Fifteen", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fifteen/" }, { "tag": "Disable", "name": "Fifteenth", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fifteenth/" }, { "tag": "Disable", "name": "Fiore", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fiore/" }, { "tag": "Disable", "name": "Fjords", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fjords/" }, { "tag": "Disable", "name": "Flat", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Flat/" }, { "tag": "Disable", "name": "FlatOn", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/FlatOn/" }, { "tag": "Disable", "name": "Flex", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Flex/" }, { "tag": "Disable", "name": "Flounder", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Flounder/" }, { "tag": "Disable", "name": "Fontfolio – WordPress.com", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fontfolio%20%E2%80%93%20WordPress.com/" }, { "tag": "Disable", "name": "Food and Diet", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Food%20and%20Diet/" }, { "tag": "Disable", "name": "Forever", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Forever/" }, { "tag": "Enable", "name": "Fork", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "FSE block theme for blogs/business/portfolio/ecommerce; type Unknown, could be Portfolio/Business.", "link": "https://wordpress.org/themes/fork/" }, { "tag": "Enable", "name": "Fortunato", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Minimal blog/WooCommerce theme; matches Blog.", "link": "https://wordpress.org/themes/fortunato/" }, { "tag": "Disable", "name": "Fourteenpress", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fourteenpress/" }, { "tag": "Disable", "name": "FrameTheme", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/FrameTheme/" }, { "tag": "Disable", "name": "Franklin", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Franklin/" }, { "tag": "Disable", "name": "Freak", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Freak/" }, { "tag": "Disable", "name": "Freshy", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Freshy/" }, { "tag": "Enable", "name": "Frost", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "FSE theme for agencies/business/portfolio; type Unknown, actually Business/Portfolio.", "link": "https://wordpress.org/themes/frost/" }, { "tag": "Disable", "name": "Fruit Shake", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Fruit%20Shake/" }, { "tag": "Enable", "name": "Fukasawa", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Masonry blog theme for photographers/collectors; matches Portfolio loosely.", "link": "https://wordpress.org/themes/fukasawa/" }, { "tag": "Enable", "name": "Garfunkel", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Masonry blog theme; matches Portfolio loosely.", "link": "https://wordpress.org/themes/garfunkel/" }, { "tag": "Disable", "name": "Garland", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Garland/" }, { "tag": "Disable", "name": "Gateway - WordPress.com", "status": "Disabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gateway%20-%20WordPress.com/" }, { "tag": "Disable", "name": "Gazette", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gazette/" }, { "tag": "Disable", "name": "Geekery", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Geekery/" }, { "tag": "Disable", "name": "Geiseric", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Geiseric/" }, { "tag": "Disable", "name": "GeneratePress", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/GeneratePress/" }, { "tag": "Disable", "name": "Ghazale", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ghazale/" }, { "tag": "Disable", "name": "Gillian", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gillian/" }, { "tag": "Disable", "name": "GloriousDay", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/GloriousDay/" }, { "tag": "Disable", "name": "GlossyBlue", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/GlossyBlue/" }, { "tag": "Disable", "name": "Golf", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Golf/" }, { "tag": "Enable", "name": "Graphy", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Typography-focused mobile-first blog theme; matches Blog.", "link": "https://wordpress.org/themes/graphy/" }, { "tag": "Disable", "name": "Grassland", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Grassland/" }, { "tag": "Disable", "name": "Gray Chalk", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gray%20Chalk/" }, { "tag": "Disable", "name": "Greenery", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Greenery/" }, { "tag": "Disable", "name": "Gridster-Lite", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gridster-Lite/" }, { "tag": "Disable", "name": "Gridz", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Gridz/" }, { "tag": "Disable", "name": "Griffin", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Griffin/" }, { "tag": "Disable", "name": "Grisaille", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Grisaille/" }, { "tag": "Maybe", "name": "Hamilton", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Image-grid portfolio theme for photographers/designers; matches Portfolio well.", "link": "https://wordpress.org/themes/hamilton/" }, { "tag": "Disable", "name": "Harmonic", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Harmonic/" }, { "tag": "Disable", "name": "Hatch", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hatch/" }, { "tag": "Disable", "name": "Heinrich", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Heinrich/" }, { "tag": "Disable", "name": "Hemingway", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hemingway/" }, { "tag": "Disable", "name": "Hemingway", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hemingway/" }, { "tag": "Disable", "name": "Hero", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hero/" }, { "tag": "Disable", "name": "Hestia", "status": "Disabled", "type": "E-Commerce", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hestia/" }, { "tag": "Disable", "name": "Hew", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hew/" }, { "tag": "Disable", "name": "Hexa", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hexa/" }, { "tag": "Disable", "name": "Hiero", "status": "Enabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hiero/" }, { "tag": "Disable", "name": "Highwind", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Highwind/" }, { "tag": "Enable", "name": "Hitchcock", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Minimal portfolio theme for designers/photographers; matches well.", "link": "https://wordpress.org/themes/hitchcock/" }, { "tag": "Maybe", "name": "Hoffman", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimal responsive blog theme; labeled Portfolio, actually Blog.", "link": "https://wordpress.org/themes/hoffman/" }, { "tag": "Disable", "name": "Houston", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Houston/" }, { "tag": "Enable", "name": "Hueman", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Still live, fast blog/magazine theme, 20,000+ installs; matches Magazine.", "link": "https://wordpress.org/themes/hueman/" }, { "tag": "Disable", "name": "Hum", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Hum/" }, { "tag": "Disable", "name": "iBlog", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Confirmed deprecated (old PageLines theme, v3.1.2); no longer listed on WordPress.org. Disabled at Brown and excluded from enable recommendations.", "link": "https://wordpress.org/themes/search/iBlog/" }, { "tag": "Disable", "name": "Identity", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Identity/" }, { "tag": "Enable", "name": "Ignite", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Clean responsive blog/WooCommerce theme; labeled Portfolio, actually Blog-ish.", "link": "https://wordpress.org/themes/ignite/" }, { "tag": "Disable", "name": "Illustratr", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Illustratr/" }, { "tag": "Disable", "name": "Imaginy", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Imaginy/" }, { "tag": "Disable", "name": "Impronta", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Impronta/" }, { "tag": "Disable", "name": "Independent Publisher", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Independent%20Publisher/" }, { "tag": "Disable", "name": "Infoist", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Infoist/" }, { "tag": "Disable", "name": "Inkblot", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Inkblot/" }, { "tag": "Maybe", "name": "Intergalactic", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Bold-image one-column personal blog theme; matches Blog.", "link": "https://wordpress.org/themes/intergalactic/" }, { "tag": "Maybe", "name": "Intro", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "No", "note": "No 'Intro' on wordpress.org; aThemes' Intro theme is hosted on athemes.com only.", "link": "https://wordpress.org/themes/search/Intro/" }, { "tag": "Disable", "name": "Isola", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Isola/" }, { "tag": "Disable", "name": "iTek", "status": "Disabled", "type": "E-Commerce", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/iTek/" }, { "tag": "Disable", "name": "Ixion", "status": "Enabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/ixion/" }, { "tag": "Disable", "name": "Jakarta", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Jakarta/" }, { "tag": "Disable", "name": "Japan Style", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Japan%20Style/" }, { "tag": "Disable", "name": "Journalist", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Journalist/" }, { "tag": "Disable", "name": "Just Pink", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Just%20Pink/" }, { "tag": "Disable", "name": "Just Write", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/just-write/" }, { "tag": "Disable", "name": "K2", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/K2/" }, { "tag": "Maybe", "name": "Karuna", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Clean business theme for health/wellness sites; labeled Portfolio, actually Business.", "link": "https://wordpress.org/themes/karuna/" }, { "tag": "Disable", "name": "keepwriting", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/keepwriting/" }, { "tag": "Disable", "name": "Kelly", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Kelly/" }, { "tag": "Maybe", "name": "Kichu", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "One-column elegant blog theme; labeled Portfolio, actually Blog.", "link": "https://wordpress.org/themes/kichu/" }, { "tag": "Maybe", "name": "Kiyomizu", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Tiny child theme of Twenty Fifteen, 2-column post list; niche, no journal focus.", "link": "https://wordpress.org/themes/kiyomizu/" }, { "tag": "Disable", "name": "Klean", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Klean/" }, { "tag": "Disable", "name": "Krusze", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Krusze/" }, { "tag": "Disable", "name": "Kuorinka", "status": "Deprecated", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Kuorinka/" }, { "tag": "Enable", "name": "Landscape", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Single-column theme for blogs/business sites; labeled Portfolio, mismatch.", "link": "https://wordpress.org/themes/landscape/" }, { "tag": "Disable", "name": "LetterHead", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/LetterHead/" }, { "tag": "Maybe", "name": "Libre", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Classic long-form writing/blog theme; matches Blog well.", "link": "https://wordpress.org/themes/libre/" }, { "tag": "Disable", "name": "Libretto", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Libretto/" }, { "tag": "Disable", "name": "Limelight", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Limelight/" }, { "tag": "Disable", "name": "Lindeza", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Lindeza/" }, { "tag": "Maybe", "name": "Lingonberry", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Clean simple responsive blog theme; matches Blog well.", "link": "https://wordpress.org/themes/lingonberry/" }, { "tag": "Disable", "name": "Liquorice", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Liquorice/" }, { "tag": "Maybe", "name": "Lodestar", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Conferences & Workshops", "verified": "Yes", "note": "One-page startup/small-business theme; labeled Portfolio, actually Business.", "link": "https://wordpress.org/themes/lodestar/" }, { "tag": "Disable", "name": "Loose Leaf", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Loose%20Leaf/" }, { "tag": "Disable", "name": "Lovebirds", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Yes", "note": "Wedding-planning theme (child of Forever); niche, General fits loosely. Moved to Disable — no starter-type category fit.", "link": "https://wordpress.org/themes/lovebirds/" }, { "tag": "Enable", "name": "Lovecraft", "status": "Enabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Two-column blog theme with header images; labeled Education/Org, actually Blog.", "link": "https://wordpress.org/themes/lovecraft/" }, { "tag": "Enable", "name": "Lyretail", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Minimalist one-column writing/blog theme; matches Blog well.", "link": "https://wordpress.org/themes/lyretail/" }, { "tag": "Disable", "name": "Magazeen", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Magazeen/" }, { "tag": "Disable", "name": "Magazine Basic", "status": "Disabled", "type": "Magazine", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Magazine%20Basic/" }, { "tag": "Disable", "name": "Magazino", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Magazino/" }, { "tag": "Enable", "name": "Maisha Lite", "status": "Enabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Charity/non-profit theme inspired by Virunga documentary; matches Education/Org well.", "link": "https://wordpress.org/themes/maisha-lite/" }, { "tag": "Disable", "name": "Mandigo", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Mandigo/" }, { "tag": "Disable", "name": "Manduca", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Manduca/" }, { "tag": "Disable", "name": "Manta", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Manta/" }, { "tag": "Disable", "name": "Market", "status": "Disabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Market/" }, { "tag": "Disable", "name": "Matheson", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Matheson/" }, { "tag": "Disable", "name": "Matisse", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Matisse/" }, { "tag": "Disable", "name": "McKinley", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/mckinley/" }, { "tag": "Maybe", "name": "McLuhan", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Lightweight theme, year-archive front page, resume template; labeled Education/Org, more general-blog.", "link": "https://wordpress.org/themes/mcluhan/" }, { "tag": "Disable", "name": "Media Maven", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Media%20Maven/" }, { "tag": "Disable", "name": "MesoColumn", "status": "Disabled", "type": "E-Commerce", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/MesoColumn/" }, { "tag": "Disable", "name": "Metro CreativeX", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Metro%20CreativeX/" }, { "tag": "Maybe", "name": "MH Newsdesk lite", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Yes", "note": "News/magazine flat-design theme; matches Magazine well.", "link": "https://wordpress.org/themes/mh-newsdesk-lite/" }, { "tag": "Disable", "name": "MH Squared lite", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/MH%20Squared%20lite/" }, { "tag": "Disable", "name": "Minimal Artist", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Minimal%20Artist/" }, { "tag": "Disable", "name": "Minimal Blogs", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Minimal%20Blogs/" }, { "tag": "Disable", "name": "Minimalist", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Minimalist/" }, { "tag": "Disable", "name": "Minimalizine", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Minimalizine/" }, { "tag": "Disable", "name": "Minnow", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Minnow/" }, { "tag": "Disable", "name": "Miranda", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Miranda/" }, { "tag": "Disable", "name": "Misty Lake", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Misty%20Lake/" }, { "tag": "Disable", "name": "MistyLook", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/MistyLook/" }, { "tag": "Disable", "name": "Mixfolio", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Mixfolio/" }, { "tag": "Disable", "name": "Moesia", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Moesia/" }, { "tag": "Disable", "name": "Mog", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Mog/" }, { "tag": "Disable", "name": "Monster", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Monster/" }, { "tag": "Disable", "name": "Motif", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Motif/" }, { "tag": "Disable", "name": "Mountain Creek", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Mountain%20Creek/" }, { "tag": "Disable", "name": "MultiColors", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/MultiColors/" }, { "tag": "Disable", "name": "Museum", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Museum/" }, { "tag": "Disable", "name": "My Life", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/My%20Life/" }, { "tag": "Disable", "name": "Mystique", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Mystique/" }, { "tag": "Disable", "name": "Nature", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Nature/" }, { "tag": "Disable", "name": "NEBlue", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/NEBlue/" }, { "tag": "Disable", "name": "Neighborly", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Neighborly/" }, { "tag": "Enable", "name": "Neve FSE", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Active FSE companion theme to Neve by Themeisle; type Unknown, general-purpose block theme.", "link": "https://wordpress.org/themes/neve-fse/" }, { "tag": "Disable", "name": "Newp", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Newp/" }, { "tag": "Disable", "name": "Newton", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Newton/" }, { "tag": "Disable", "name": "Nisarg", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Nisarg/" }, { "tag": "Disable", "name": "Norrsken", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Norrsken/" }, { "tag": "Disable", "name": "Northern-Web-Coders", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Northern-Web-Coders/" }, { "tag": "Disable", "name": "Notepad Chaos", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Notepad%20Chaos/" }, { "tag": "Disable", "name": "Noteskine", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Noteskine/" }, { "tag": "Disable", "name": "Noteworthy", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Noteworthy/" }, { "tag": "Maybe", "name": "Nouveau Riche", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Simple blogging theme with post formats; labeled Portfolio, actually Blog.", "link": "https://wordpress.org/themes/nouveau-riche/" }, { "tag": "Disable", "name": "Nucleare - WordPress.com", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Nucleare%20-%20WordPress.com/" }, { "tag": "Disable", "name": "NuvioElement Orange", "status": "Disabled", "type": "Magazine", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/NuvioElement%20Orange/" }, { "tag": "Disable", "name": "NuvioFutureMag Red", "status": "Disabled", "type": "Magazine", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/NuvioFutureMag%20Red/" }, { "tag": "Disable", "name": "Oaknut", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Oaknut/" }, { "tag": "Disable", "name": "Oberon", "status": "Enabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/oberon/" }, { "tag": "Disable", "name": "Oblique", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Oblique/" }, { "tag": "Disable", "name": "Ocean Mist", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ocean%20Mist/" }, { "tag": "Disable", "name": "OceanWide", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/OceanWide/" }, { "tag": "Disable", "name": "Omega", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Omega/" }, { "tag": "Disable", "name": "OneColumn", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/OneColumn/" }, { "tag": "Disable", "name": "Oria", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Oria/" }, { "tag": "Disable", "name": "oriental", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/oriental/" }, { "tag": "Disable", "name": "Oriental Writing", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Oriental%20Writing/" }, { "tag": "Disable", "name": "Origin", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Origin/" }, { "tag": "Disable", "name": "Orvis", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Orvis/" }, { "tag": "Disable", "name": "Oxygen", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Oxygen/" }, { "tag": "Disable", "name": "P2", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/P2/" }, { "tag": "Disable", "name": "Pachyderm", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pachyderm/" }, { "tag": "Disable", "name": "Padhang", "status": "Enabled", "type": "Unknown", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/padhang/" }, { "tag": "Disable", "name": "Panel", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Panel/" }, { "tag": "Disable", "name": "Parabola", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Parabola/" }, { "tag": "Disable", "name": "Patchwork", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Patchwork/" }, { "tag": "Maybe", "name": "Pena Lite", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Free non-profit/charity theme ('Living on One Dollar'); labeled Portfolio, actually non-profit.", "link": "https://wordpress.org/themes/pena-lite/" }, { "tag": "Disable", "name": "Penguin", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Penguin/" }, { "tag": "Disable", "name": "Penscratch", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Penscratch/" }, { "tag": "Disable", "name": "Period", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Period/" }, { "tag": "Disable", "name": "Phosphor", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Phosphor/" }, { "tag": "Maybe", "name": "Pictorico", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Yes", "note": "Photoblog/travel theme w/ slider; not portfolio-specific.", "link": "https://wordpress.org/themes/pictorico/" }, { "tag": "Disable", "name": "Pink Touch 2", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pink%20Touch%202/" }, { "tag": "Disable", "name": "Pink-Kupy", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pink-Kupy/" }, { "tag": "Disable", "name": "pinpress", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/pinpress/" }, { "tag": "Maybe", "name": "Pique", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Conferences & Workshops", "verified": "Yes", "note": "One-page small-business theme; mismatch, not Portfolio.", "link": "https://wordpress.org/themes/pique/" }, { "tag": "Disable", "name": "Pixel", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pixel/" }, { "tag": "Disable", "name": "Plane", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Plane/" }, { "tag": "Disable", "name": "Poet", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Poet/" }, { "tag": "Disable", "name": "Pool", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pool/" }, { "tag": "Disable", "name": "Popper", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Popper/" }, { "tag": "Disable", "name": "Portal", "status": "Disabled", "type": "Builder", "bestuse": "Faculty / Staff; Labs & Research; Organizations & Societies; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Portal/" }, { "tag": "Disable", "name": "PR News", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/PR%20News/" }, { "tag": "Disable", "name": "PressRow", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/PressRow/" }, { "tag": "Disable", "name": "Preus", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Preus/" }, { "tag": "Disable", "name": "PrimePress", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/PrimePress/" }, { "tag": "Disable", "name": "Primitivo", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Primitivo/" }, { "tag": "Disable", "name": "Publication", "status": "Enabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/publication/" }, { "tag": "Disable", "name": "Publish", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/publish/" }, { "tag": "Disable", "name": "Pulitzer", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Pulitzer/" }, { "tag": "Disable", "name": "Quadra", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Quadra/" }, { "tag": "Disable", "name": "Quadruple Blue", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Quadruple%20Blue/" }, { "tag": "Disable", "name": "Quentin", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Quentin/" }, { "tag": "Disable", "name": "Quintus", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Quintus/" }, { "tag": "Disable", "name": "Radiate", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Radiate/" }, { "tag": "Disable", "name": "Radium", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Radium/" }, { "tag": "Enable", "name": "Raft", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Yes", "note": "Multipurpose FSE theme (blog/business/portfolio); matches Business loosely.", "link": "https://wordpress.org/themes/raft/" }, { "tag": "Enable", "name": "Rams", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimalist blogging theme by Anders Noren; it's a blog theme.", "link": "https://wordpress.org/themes/rams/" }, { "tag": "Disable", "name": "Readr", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Readr/" }, { "tag": "Maybe", "name": "Rebalance", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Modern portfolio theme for photographers/artists. Matches.", "link": "https://wordpress.org/themes/rebalance/" }, { "tag": "Disable", "name": "Rectangulum", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Rectangulum/" }, { "tag": "Disable", "name": "Reddle", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Reddle/" }, { "tag": "Disable", "name": "Redoable", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Redoable/" }, { "tag": "Disable", "name": "Regulus", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Regulus/" }, { "tag": "Disable", "name": "Resonar", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Resonar/" }, { "tag": "Disable", "name": "Responsive", "status": "Disabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Responsive/" }, { "tag": "Disable", "name": "Retweet", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Retweet/" }, { "tag": "Disable", "name": "Rowling", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Rowling/" }, { "tag": "Disable", "name": "Rubric", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Rubric/" }, { "tag": "Maybe", "name": "Ryu", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimal one-column personal/photoblog theme; mismatch, not Magazine.", "link": "https://wordpress.org/themes/ryu/" }, { "tag": "Disable", "name": "Saga", "status": "Enabled", "type": "Blog", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/saga/" }, { "tag": "Maybe", "name": "Sanse", "status": "Enabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Fast, content-focused blog theme; type Unknown plausible.", "link": "https://wordpress.org/themes/sanse/" }, { "tag": "Disable", "name": "Sapor", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sapor/" }, { "tag": "Disable", "name": "Satu", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Satu/" }, { "tag": "Disable", "name": "Scrappy", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Scrappy/" }, { "tag": "Disable", "name": "Scratchpad", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Scratchpad/" }, { "tag": "Disable", "name": "Scrawl", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Scrawl/" }, { "tag": "Disable", "name": "SeaShore", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/SeaShore/" }, { "tag": "Disable", "name": "Seasonal", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Seasonal/" }, { "tag": "Disable", "name": "Sela", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sela/" }, { "tag": "Disable", "name": "SemPress", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/SemPress/" }, { "tag": "Disable", "name": "Sequential", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sequential/" }, { "tag": "Disable", "name": "Sidekick", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sidekick/" }, { "tag": "Disable", "name": "Silesia", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Silesia/" }, { "tag": "Disable", "name": "Silk Lite", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Silk%20Lite/" }, { "tag": "Enable", "name": "Simone", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Yes", "note": "Responsive accessible blog theme; type Unknown plausible.", "link": "https://wordpress.org/themes/simone/" }, { "tag": "Disable", "name": "simpler", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/simpler/" }, { "tag": "Disable", "name": "SimplifiedBlog", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/SimplifiedBlog/" }, { "tag": "Disable", "name": "Simplr", "status": "Disabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Simplr/" }, { "tag": "Disable", "name": "Simppeli", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Simppeli/" }, { "tag": "Disable", "name": "Sin", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sin/" }, { "tag": "Disable", "name": "Singl", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Singl/" }, { "tag": "Disable", "name": "Sixhours", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sixhours/" }, { "tag": "Disable", "name": "Sixteen", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sixteen/" }, { "tag": "Disable", "name": "Sketch", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sketch/" }, { "tag": "Disable", "name": "Skirmish", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Skirmish/" }, { "tag": "Disable", "name": "Skylark", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Skylark/" }, { "tag": "Enable", "name": "Slightly", "status": "Enabled", "type": "Unknown", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimal, opinionated blog-style theme; matches loosely.", "link": "https://wordpress.org/themes/slightly/" }, { "tag": "Disable", "name": "Snaps", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Snaps/" }, { "tag": "Maybe", "name": "Snapshot", "status": "Disabled", "type": "Builder", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies; Conferences & Workshops", "verified": "Yes", "note": "Photography showcase w/ SiteOrigin page builder; matches Builder.", "link": "https://wordpress.org/themes/snapshot/" }, { "tag": "Disable", "name": "Sobe", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sobe/" }, { "tag": "Disable", "name": "Solipsus", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Solipsus/" }, { "tag": "Disable", "name": "Some", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Some/" }, { "tag": "Disable", "name": "Some Like it Neat", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Some%20Like%20it%20Neat/" }, { "tag": "Disable", "name": "Something Fishy", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Something%20Fishy/" }, { "tag": "Disable", "name": "Sorbet", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sorbet/" }, { "tag": "Disable", "name": "Sparkling", "status": "Disabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sparkling/" }, { "tag": "Maybe", "name": "Speculate", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Twenty Fifteen child theme, generic blog; mismatch, not Education/Org.", "link": "https://wordpress.org/themes/speculate/" }, { "tag": "Disable", "name": "Spirit", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Spirit/" }, { "tag": "Disable", "name": "Splendor", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Splendor/" }, { "tag": "Disable", "name": "Spun", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Spun/" }, { "tag": "Disable", "name": "Star", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Star/" }, { "tag": "Disable", "name": "Stargazer", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Stargazer/" }, { "tag": "Disable", "name": "Stitch", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Stitch/" }, { "tag": "Disable", "name": "Stock", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Stock/" }, { "tag": "Disable", "name": "Storefront", "status": "Disabled", "type": "E-Commerce", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Storefront/" }, { "tag": "Disable", "name": "Story", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Story/" }, { "tag": "Disable", "name": "Strange Little Town", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Strange%20Little%20Town/" }, { "tag": "Disable", "name": "StrongHold", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Labs & Research; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/StrongHold/" }, { "tag": "Disable", "name": "Suits", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Suits/" }, { "tag": "Disable", "name": "sumenep", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/sumenep/" }, { "tag": "Disable", "name": "Sundance", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sundance/" }, { "tag": "Disable", "name": "Sunspot", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sunspot/" }, { "tag": "Disable", "name": "Superhero", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Superhero/" }, { "tag": "Disable", "name": "Surfarama", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Surfarama/" }, { "tag": "Disable", "name": "Suri", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Suri/" }, { "tag": "Disable", "name": "Sweet Blossoms", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Sweet%20Blossoms/" }, { "tag": "Enable", "name": "Swell Lite", "status": "Disabled", "type": "Blog", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimal responsive Gutenberg blog/starter theme; matches Blog.", "link": "https://wordpress.org/themes/swell-lite/" }, { "tag": "Disable", "name": "Swiss", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Swiss/" }, { "tag": "Disable", "name": "Syntax", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Syntax/" }, { "tag": "Disable", "name": "Tarski", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tarski/" }, { "tag": "Disable", "name": "tecblogger", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/tecblogger/" }, { "tag": "Disable", "name": "temptation", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/temptation/" }, { "tag": "Disable", "name": "Tender Spring", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tender%20Spring/" }, { "tag": "Disable", "name": "Tetris", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tetris/" }, { "tag": "Disable", "name": "The J A Mortram", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/The%20J%20A%20Mortram/" }, { "tag": "Enable", "name": "The Newswire", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Yes", "note": "News/blog theme w/ slider for local news; matches Magazine.", "link": "https://wordpress.org/themes/the-newswire/" }, { "tag": "Disable", "name": "The Night Watch", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/The%20Night%20Watch/" }, { "tag": "Disable", "name": "Thoughts", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Thoughts/" }, { "tag": "Disable", "name": "Timepiece", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Timepiece/" }, { "tag": "Disable", "name": "Tiny Forge", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tiny%20Forge/" }, { "tag": "Disable", "name": "Tiny Framework", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tiny%20Framework/" }, { "tag": "Disable", "name": "Toivo Lite", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Toivo%20Lite/" }, { "tag": "Maybe", "name": "Tonal", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimal blog theme, large images/video; WP tags it Blog not Magazine.", "link": "https://wordpress.org/themes/tonal/" }, { "tag": "Maybe", "name": "Tortuga", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Magazine/news theme w/ widget homepage & slider. Matches.", "link": "https://wordpress.org/themes/tortuga/" }, { "tag": "Disable", "name": "Totomo", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Totomo/" }, { "tag": "Disable", "name": "Toujours", "status": "Disabled", "type": "Unknown", "bestuse": "Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Toujours/" }, { "tag": "Disable", "name": "Tracks", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tracks/" }, { "tag": "Disable", "name": "Travel Eye", "status": "Disabled", "type": "Builder", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies; Conferences & Workshops", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Travel%20Eye/" }, { "tag": "Disable", "name": "Trope", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Trope/" }, { "tag": "Disable", "name": "Tropicala", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tropicala/" }, { "tag": "Disable", "name": "Truly Minimal – WordPress.com", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Truly%20Minimal%20%E2%80%93%20WordPress.com/" }, { "tag": "Disable", "name": "Trvl", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Trvl/" }, { "tag": "Disable", "name": "Tungsten", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Tungsten/" }, { "tag": "Enable", "name": "Twenty Eleven", "status": "Enabled", "type": "Core/Default", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Official WP 2011 default blog theme. Matches.", "link": "https://wordpress.org/themes/twentyeleven/" }, { "tag": "Enable", "name": "Twenty Fourteen", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official WP 2014 default magazine-style theme. Matches.", "link": "https://wordpress.org/themes/twentyfourteen/" }, { "tag": "Enable", "name": "Twenty Nineteen", "status": "Disabled", "type": "Core/Default", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Official WP 2019 default block-editor theme. Matches.", "link": "https://wordpress.org/themes/twentynineteen/" }, { "tag": "Disable", "name": "Twenty Ten", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/twentyten/" }, { "tag": "Disable", "name": "Twenty Thirteen", "status": "Disabled", "type": "Core/Default", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/twentythirteen/" }, { "tag": "Disable", "name": "Twenty Twelve", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/twentytwelve/" }, { "tag": "Enable", "name": "Twenty Twenty", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Conferences & Workshops; Publications & Journals; Organizations & Societies; Faculty / Staff", "verified": "Yes", "note": "Official WP 2020 default block-editor theme. Matches.", "link": "https://wordpress.org/themes/twentytwenty/" }, { "tag": "Enable", "name": "Twenty Twenty-Five", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Conferences & Workshops; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official WP 2025 default FSE block theme. Matches.", "link": "https://wordpress.org/themes/twentytwentyfive/" }, { "tag": "Enable", "name": "Twenty Twenty-Four", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official WP 2024 default FSE block theme. Matches.", "link": "https://wordpress.org/themes/twentytwentyfour/" }, { "tag": "Enable", "name": "Twenty Twenty-One", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official WP 2021 default block-editor theme. Matches.", "link": "https://wordpress.org/themes/twentytwentyone/" }, { "tag": "Enable", "name": "Twenty Twenty-Three", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Faculty / Staff; Organizations & Societies", "verified": "Yes", "note": "Official WP 2023 default theme, 10 style variations. Matches.", "link": "https://wordpress.org/themes/twentytwentythree/" }, { "tag": "Enable", "name": "Twenty Twenty-Two", "status": "Disabled", "type": "Core/Default", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies; Faculty / Staff", "verified": "Yes", "note": "Official WP 2022 default FSE theme. Matches.", "link": "https://wordpress.org/themes/twentytwentytwo/" }, { "tag": "Disable", "name": "Twilight", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Twilight/" }, { "tag": "Disable", "name": "Typo-o-graphy", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Typo-o-graphy/" }, { "tag": "Disable", "name": "Unique", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Unique/" }, { "tag": "Disable", "name": "Unite", "status": "Enabled", "type": "E-Commerce", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/unite/" }, { "tag": "Disable", "name": "Universal", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Universal/" }, { "tag": "Disable", "name": "University", "status": "Disabled", "type": "Business", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/University/" }, { "tag": "Disable", "name": "Unlimited", "status": "Disabled", "type": "Unknown", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Unlimited/" }, { "tag": "Disable", "name": "Untitled", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Untitled/" }, { "tag": "Disable", "name": "UU 2014", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/UU%202014/" }, { "tag": "Disable", "name": "Vanilla Milkshake", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Minimalist typography theme for simple weblogs; mismatch, not Portfolio. Moved to Disable per owner review.", "link": "https://wordpress.org/themes/vanilla-milkshake/" }, { "tag": "Disable", "name": "Varg", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Varg/" }, { "tag": "Maybe", "name": "Veggie Lite", "status": "Disabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Free food/recipe blog theme; mismatch, not Magazine/academic use.", "link": "https://wordpress.org/themes/veggie-lite/" }, { "tag": "Disable", "name": "Vermeer", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Vermeer/" }, { "tag": "Disable", "name": "veryplaintxt", "status": "Disabled", "type": "Unknown", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/veryplaintxt/" }, { "tag": "Disable", "name": "viking", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/viking/" }, { "tag": "Disable", "name": "Vintage Camera", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Vintage%20Camera/" }, { "tag": "Disable", "name": "Vistered Little", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Vistered%20Little/" }, { "tag": "Disable", "name": "Visual", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Visual/" }, { "tag": "Maybe", "name": "Vito", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Yes", "note": "Simple blogging theme, abandoned since 2015; mismatch, not Portfolio.", "link": "https://wordpress.org/themes/vito/" }, { "tag": "Disable", "name": "waffle", "status": "Disabled", "type": "Magazine", "bestuse": "Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/waffle/" }, { "tag": "Disable", "name": "Ward", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Labs & Research; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Ward/" }, { "tag": "Disable", "name": "Waterlily", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Waterlily/" }, { "tag": "Disable", "name": "Whimsical Love", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Whimsical%20Love/" }, { "tag": "Disable", "name": "White", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/White/" }, { "tag": "Disable", "name": "White Xmas", "status": "Disabled", "type": "Education/Org", "bestuse": "Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/White%20Xmas/" }, { "tag": "Disable", "name": "Widely – WordPress.com", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Widely%20%E2%80%93%20WordPress.com/" }, { "tag": "Enable", "name": "Wilson", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Clean personal blog theme by Anders Noren; not Education/Org.", "link": "https://wordpress.org/themes/wilson/" }, { "tag": "Enable", "name": "WP Jurist", "status": "Enabled", "type": "Magazine", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Law firm theme w/ staff profiles plugin; type Magazine questionable, better Business.", "link": "https://wordpress.org/themes/wp-jurist/" }, { "tag": "Disable", "name": "WP-Andreas", "status": "Disabled", "type": "Unknown", "bestuse": "General", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/WP-Andreas/" }, { "tag": "Disable", "name": "WPMU Dixi", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/WPMU%20Dixi/" }, { "tag": "Disable", "name": "WPMU Triden", "status": "Disabled", "type": "Education/Org", "bestuse": "Labs & Research; Publications & Journals; Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/WPMU%20Triden/" }, { "tag": "Disable", "name": "WPstart", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/WPstart/" }, { "tag": "Disable", "name": "Writr", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Writr/" }, { "tag": "Disable", "name": "Yoko", "status": "Disabled", "type": "Education/Org", "bestuse": "Organizations & Societies", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Yoko/" }, { "tag": "Enable", "name": "Yuuta", "status": "Enabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Yes", "note": "Personal 'visual diary' blog theme, all post formats; mismatch, not Portfolio.", "link": "https://wordpress.org/themes/yuuta/" }, { "tag": "Maybe", "name": "Zoomify", "status": "Disabled", "type": "Education/Org", "bestuse": "Faculty / Staff; Publications & Journals; Organizations & Societies", "verified": "Yes", "note": "Clean personal blog theme, abandoned since 2015; not Education/Org.", "link": "https://wordpress.org/themes/zoomify/" }, { "tag": "Disable", "name": "Zoren – WordPress.com", "status": "Disabled", "type": "Portfolio", "bestuse": "Faculty / Staff; Publications & Journals", "verified": "Not checked", "note": "", "link": "https://wordpress.org/themes/search/Zoren%20%E2%80%93%20WordPress.com/" }];
+        const COLS = [{ k: "tag", t: "Tag" }, { k: "name", t: "Theme" }, { k: "status", t: "Status" }, { k: "type", t: "Type" }, { k: "bestuse", t: "Best Used For" }, { k: "link", t: "Link" }];
+        let state = { tag: "", search: "", sortKey: "tag", sortDir: 1 };
+        const SEL_KEY = "brownThemeReview_selectedToEnable_v1";
+        let SELECTED = {};
+        try { SELECTED = JSON.parse(localStorage.getItem(SEL_KEY) || "{}"); } catch (e) { SELECTED = {}; }
+        function isSelected(name) { return !!SELECTED[name]; }
+        function setSelected(name, val) { if (val) SELECTED[name] = true; else delete SELECTED[name]; try { localStorage.setItem(SEL_KEY, JSON.stringify(SELECTED)); } catch (e) { } updateSelectInfo(); }
+        function updateSelectInfo() { const n = Object.keys(SELECTED).length; const el = document.getElementById("selectInfo"); if (el) el.textContent = n + (n === 1 ? " theme selected" : " themes selected") + " to enable"; }
+        function onSelectToggle(cb) { const name = cb.getAttribute("data-name"); setSelected(name, cb.checked); const row = cb.closest("tr"); if (row) row.classList.toggle("is-selected", cb.checked); }
+        function clearSelected() { SELECTED = {}; try { localStorage.setItem(SEL_KEY, JSON.stringify(SELECTED)); } catch (e) { } updateSelectInfo(); apply(); }
+        function exportSelected() {
+            const names = Object.keys(SELECTED);
+            const sel = DATA.filter(d => SELECTED[d.name]);
+            if (!sel.length) { alert("No themes selected yet. Check the box on any row to select it."); return; }
+            const cols = ["Tag", "Theme", "Status", "Type", "Best Used For", "Reference / Theme Link"];
+            const lines = [cols.join(",")];
+            sel.forEach(d => { lines.push([d.tag, d.name, d.status, d.type, d.bestuse, d.link].map(csvCell).join(",")); });
+            const csv = lines.join("\\r\\n");
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url; a.download = "sites-brown-themes-selected-to-enable-" + sel.length + ".csv"; document.body.appendChild(a); a.click();
+            setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 3000);
+        }
+        function buildTagBar() {
+            const defs = [{ v: "", l: "All themes", n: DATA.length }, { v: "Enable", l: "Enable", n: DATA.filter(d => d.tag === "Enable").length }, { v: "Maybe", l: "Maybe", n: DATA.filter(d => d.tag === "Maybe").length }, { v: "Disable", l: "Disable", n: DATA.filter(d => d.tag === "Disable").length }];
+            document.getElementById("tagBar").innerHTML = defs.map(x => '<div class="tbtn' + (state.tag === x.v ? ' active' : '') + '" data-tag="' + x.v + '" onclick="togTag(this)"><div class="num">' + x.n + '</div><div class="lbl">' + x.l + '</div></div>').join("");
+        }
+        function togTag(e) { const t = e.dataset.tag; state.tag = state.tag === t ? "" : t; buildTagBar(); apply(); }
+        document.getElementById("search").addEventListener("input", e => { state.search = e.target.value.toLowerCase(); apply(); });
+        function buildHead() { document.getElementById("head").innerHTML = '<th class="selcell" style="cursor:default" title="Select to enable">Enable?</th>' + COLS.map(c => { let a = state.sortKey === c.k ? (state.sortDir > 0 ? "\u25B2" : "\u25BC") : "\u2195"; return '<th onclick="sortBy(\'' + c.k + '\')">' + c.t + '<span class="arr">' + a + '</span></th>'; }).join(""); }
+        function sortBy(k) { if (state.sortKey === k) state.sortDir *= -1; else { state.sortKey = k; state.sortDir = 1; } buildHead(); apply(); }
+        function getFiltered() {
+            return DATA.filter(d => {
+                if (state.tag && d.tag !== state.tag) return false;
+                if (state.search && !d.name.toLowerCase().includes(state.search)) return false;
+                return true;
+            }).sort((a, b) => {
+                let k = state.sortKey, x = a[k], y = b[k];
+                if (typeof x !== "number") x = ("" + x).toLowerCase();
+                if (typeof y !== "number") y = ("" + y).toLowerCase();
+                if (x < y) return -1 * state.sortDir; if (x > y) return 1 * state.sortDir;
+                return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
+            });
+        }
+        function bestUseTags(s) { if (!s) return '<span class="muted">-</span>'; return s.split(";").map(u => '<span class="usetag">' + u.trim() + '</span>').join(""); }
+        function apply() {
+            const f = getFiltered();
+            document.getElementById("noResult").style.display = f.length ? "none" : "block";
+            document.getElementById("body").innerHTML = f.map(d => {
+                const link = d.link ? '<a class="linkv" href="' + d.link + '" target="_blank" rel="noopener">Theme page \u2197</a>' : '<span class="muted">-</span>';
+                const sel = isSelected(d.name);
+                const cb = '<td class="selcell"><input type="checkbox" data-name="' + d.name.replace(/"/g, "&quot;") + '" ' + (sel ? "checked" : "") + ' onchange="onSelectToggle(this)"></td>';
+                return '<tr class="row-' + d.tag + (sel ? ' is-selected' : '') + '">' + cb + '<td><span class="badge badge-' + d.tag + '">' + d.tag + '</span></td><td><b>' + d.name + '</b></td><td>' + d.status + '</td><td>' + d.type + '</td><td>' + bestUseTags(d.bestuse) + '</td><td>' + link + '</td></tr>';
+            }).join("");
+            const label = state.tag ? state.tag : "All tags";
+            document.getElementById("results").textContent = "Showing " + f.length + " of " + DATA.length + " themes (" + label + ")";
+        }
+        function csvCell(v) { v = (v == null ? "" : ("" + v)); if (/[",\n]/.test(v)) v = '"' + v.replace(/"/g, '""') + '"'; return v; }
+        function exportView() {
+            const f = getFiltered();
+            const cols = ["Tag", "Theme", "Status", "Type", "Best Used For", "Verified", "Verification Notes", "Reference / Theme Link"];
+            const lines = [cols.join(",")];
+            f.forEach(d => { lines.push([d.tag, d.name, d.status, d.type, d.bestuse, d.verified, d.note || "", d.link].map(csvCell).join(",")); });
+            const csv = lines.join("\r\n");
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            const tagPart = state.tag ? state.tag.toLowerCase() : "all";
+            a.href = url; a.download = "sites-brown-themes-" + tagPart + "-" + f.length + ".csv"; document.body.appendChild(a); a.click();
+            setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 3000);
+        }
+        buildTagBar(); buildHead(); updateSelectInfo(); apply();
+    </script>
+</body>
+
+</html>
